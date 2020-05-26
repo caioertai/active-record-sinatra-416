@@ -1,0 +1,36 @@
+<h2>Add restaurant:</h2>
+
+<!-- The HTML form is what stands for what previously -->
+<!-- was the gets.chomp from our apps -->
+<form action="/restaurants" method="POST">
+  <label>
+    Name:
+    <!-- Name -->
+    <input type="text" name="name">
+  </label>
+  <label>
+    Address:
+    <!-- Address -->
+    <input type="text" name="address">
+  </label>
+  <label>
+    Rating:
+    <!-- Rating -->
+    <input type="number" name="rating">
+  </label>
+  <input type="submit" value="Add Restaurant">
+</form>
+
+<h1>List of Restaurants</h1>
+<ul>
+  <!-- This instance variable comes from the code -->
+  <!-- in the get /restaurants from app.rb -->
+  <!-- @restaurants => [] of restaurants instances -->
+  <% @restaurants.each do |restaurant| %>
+    <li>
+      <a href="/restaurants/<%= restaurant.id %>">
+        <%= restaurant.name %>
+      </a>
+    </li>
+  <% end %>
+</ul>
